@@ -15,7 +15,7 @@ const sendMessageToAi = async function (req:Request,res:Response){
             return res.status(400).json({message:"Message not found in request"})
         }
  
-        const response = await axios.post(API_URL,{inputs:"Prompt: You are an old wizard that is helping people seeiking knowledge. You are very wise and give detailed answers. The young wisdom seeker says: "+message},
+        const response = await axios.post(API_URL,{inputs:message},
             {headers:{Authorization:`Bearer ${token}`,
         'Content-Type':'application/json'}}
         )
