@@ -2,10 +2,10 @@ import MessageText from "./MessageText";
 import {motion} from "motion/react"
 
 interface AnswerTextBlock{
-    text:string
+    textInput:string
 }
 
-const AnswerTextBlock:React.FC<AnswerTextBlock> = ({text}) => {
+const AnswerTextBlock:React.FC<AnswerTextBlock> = ({textInput}) => {
     return ( 
 
         <motion.div
@@ -14,7 +14,7 @@ const AnswerTextBlock:React.FC<AnswerTextBlock> = ({text}) => {
         transition={{duration:0.1}}
         
         className="w-[40%] bg-slate-300 p-2 rounded-md rounded-bl-none my-5 ml-5">
-            <MessageText text={text}></MessageText>
+            <MessageText text={textInput}></MessageText>
         </motion.div>
      );
 }

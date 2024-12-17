@@ -2,15 +2,19 @@ import axios from "axios";
 
 interface ButtonInputs{
     text:string,
+    getMessage:(message:string)=>string,
+    userMessage:string,
+    getUserMessage:(message:string)=>string
 }
 
-const Button1:React.FC<ButtonInputs> = ({text}) => {
+const Button1:React.FC<ButtonInputs> = ({text,getMessage,userMessage,getUserMessage}) => {
 
 const clickHandle = function(){
+    getUserMessage(userMessage)
     axios.post('http://localhost:5000/api/messageSending',{
-       message:"Aaaaa"
+       message:userMessage
     }).then((res)=>{
-        console.log(res.data.message)
+        getMessage(res.data[0])
     }).catch((error)=>{
         console.log(error)
     })
