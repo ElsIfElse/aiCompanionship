@@ -1,14 +1,19 @@
 import './App.css'
 import ChatPage from './pages/ChatPage'
-// import MainPage from './pages/MainPage'
-
+import  {BrowserRouter as Router,Route,Routes } from 'react-router-dom'
+import MainPage from './pages/MainPage'
 function App() {
 
 
   return (
     <>
-       {/* <MainPage/> */}
-       <ChatPage></ChatPage>
+      <Router>
+        <Routes>
+          <Route path='/' element={<MainPage/>}/>
+          <Route path='/chat' element={<ChatPage/>}/>
+        </Routes>
+      </Router>
+       
     </>
   )
 }

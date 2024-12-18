@@ -1,16 +1,23 @@
 import axios from "axios";
 
-interface ButtonInputs{
-    text:string,
-    getMessage:(message:string)=>string,
-    userMessage:string,
-    getUserMessage:(message:string)=>string
+interface aiAnswer{
+    generated_text:string
 }
 
-const Button1:React.FC<ButtonInputs> = ({text,getMessage,userMessage,getUserMessage}) => {
+interface ButtonInputs{
+    text:string,
+    getMessage:(message:aiAnswer)=>void,
+    userMessage:string,
+    getUserMessage:(message:string)=>void,
+    clearInputField: ()=>void
+}
+
+const Button1:React.FC<ButtonInputs> = ({text,getMessage,userMessage,getUserMessage,clearInputField}) => {
+
 
 const clickHandle = function(){
     getUserMessage(userMessage)
+    clearInputField()
     axios.post('http://localhost:5000/api/messageSending',{
        message:userMessage
     }).then((res)=>{
@@ -23,7 +30,7 @@ const clickHandle = function(){
 
     return ( 
         <>
-            <button onClick={()=>clickHandle()} className="bg-slate-500 py-2 px-3 border-none hover:opacity-90 focus:border-none focus:outline-none active:text-slate-400 transition-all duration-200">{text}</button>
+            <button onClick={()=>{clickHandle()}} className="bg-slate-500 py-2 px-3 border-none outline-none hover:opacity-90 focus:border-none focus:outline-none active:text-slate-400 transition-all duration-200">{text}</button>
         </>
      );
 }

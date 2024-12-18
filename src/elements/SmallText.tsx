@@ -5,7 +5,7 @@ interface SmallTextInput{
 const SmallText:React.FC<SmallTextInput> = ({text}) => {
     return ( 
         <>
-            <p className="text-sm tracking-wide">{text}</p>
+            <p className="font-Alef text-sm tracking-wide">{text}</p>
         </>
      );
 }
