@@ -5,7 +5,7 @@ interface MessageText{
 const MessageText:React.FC<MessageText> = ({text}) => {
     return ( 
         <>
-            <p className="text-md text-slate-700">{text}</p>
+            <p className="2xl:text-md text-slate-700">{text}</p>
         </>
      );
 }

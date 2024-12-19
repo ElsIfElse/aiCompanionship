@@ -1,39 +1,44 @@
 import {motion} from "motion/react"
+import SmallText from "./SmallText";
 
-const LoadingSign = () => {
+interface LoadingSignProps{
+    loadText?:string
+}
+
+const LoadingSign:React.FC<LoadingSignProps> = ({loadText}) => {
     return ( 
-        <div className="flex flex-row">
+        <div className="flex flex-row items-end"><SmallText text={loadText+" is typing"}/>
                 <motion.div 
-        animate={{y:["0px","-2px","0px"]}}
+        animate={{y:["0px","-1px","0px"]}}
         transition={{duration:0.5,
             repeat:Infinity,
             repeatType:"loop",
             delay:0
         }}
                 
-                className="w-[10px] h-[10px] border-slate-700 border-2 bg-slate-400 rounded-full">
+                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-100 ml-[2px] rounded-full">
                 
                 </motion.div>
                 <motion.div 
-        animate={{y:["0px","-2px","0px"]}}
-        transition={{duration:0.5,
-            repeat:Infinity,
-            repeatType:"loop",
-            delay:0.1
-        }}
-                
-                className="w-[10px] h-[10px] border-slate-700 border-2 bg-slate-400 rounded-full">
-                
-                </motion.div>
-                <motion.div 
-        animate={{y:["0px","-2px","0px"]}}
+        animate={{y:["0px","-1px","0px"]}}
         transition={{duration:0.5,
             repeat:Infinity,
             repeatType:"loop",
             delay:0.2
         }}
                 
-                className="w-[10px] h-[10px] border-slate-700 border-2 bg-slate-400 rounded-full">
+                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-100 ml-[2px] rounded-full">
+                
+                </motion.div>
+                <motion.div 
+        animate={{y:["0px","-1px","0px"]}}
+        transition={{duration:0.5,
+            repeat:Infinity,
+            repeatType:"loop",
+            delay:0.3
+        }}
+                
+                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-100 ml-[2px] rounded-full">
                 
                 </motion.div>
         </div>

@@ -11,78 +11,81 @@ const RETRY_DELAY = 10000; // Delay between retries
 const MAX_RETRY_NUM = 3;
 
 const sendMessageToAi = async function (req: Request, res: Response) {
+    console.log("Checkpoint 1");
     let CURRENT_RETRY_NUM = 0;
 
     const getAiResponse = async () => {
-        let out = "";
-
-        const userName:string = req.body.data.userName;
-        const userMessage:string = req.body.data.message;
-        const userGender:string = req.body.data.userGender;
-
-        const aiGender:string = req.body.data.aiGender;
-        const aiPersonality:string = req.body.data.aiPersonality
-        const aiName:string = req.body.data.aiName
- 
-        const chatHistoryArray:string[] = req.body.data.allMessages;
-        const chatHistory:string = chatHistoryArray.join()
-
-        // console.log(userMessage,aiGender)
-        const prePrompt = `This first part is always just a description for you so you do not forget the scenario. We are roleplaying in a scenario where You are a ${aiGender} called ${aiName} texting with a boy  called ${userName} who is the user. You are ${aiPersonality}. The user is a ${userGender} talking to you. Chat history: ${chatHistory}. User says: `;
-        console.log("Sending message: ",prePrompt+userMessage); 
-        // console.log(token)
+        console.log("Checkpoint 2");
+        let aiResponse = "";
 
         try {
+            const {
+                userName = '',
+                message: userMessage = '',
+                userGender = '',
+                aiGender = '',
+                aiPersonality = '',
+                aiName = '',
+                allMessages: chatHistoryArray = []
+            } = req.body.data || {};
+
+            const chatHistory = chatHistoryArray.join(", ");
+            const prompt = `This first part is always just a description for you so you do not forget the scenario. We are roleplaying in a scenario where You are a ${aiGender} called ${aiName} texting with a ${userGender} called ${userName} who is the user. You are ${aiPersonality}. Chat history: ${chatHistory}. User texts: ${userMessage}`;
+
+            console.log("Sending message: ", prompt);
+
             const stream = client.chatCompletionStream({
                 model: "google/gemma-2-9b-it",
                 messages: [
                     {
                         role: "user",
-                        content:prePrompt+userMessage,
+                        content: prompt,
                     },
                 ],
-                max_tokens: 300,
+                max_tokens: 500,
             });
-            // console.log("Checkpoint 1")
 
+            console.log("Checkpoint 4");
             for await (const chunk of stream) {
-                try {
-                    if (chunk.choices && chunk.choices.length > 0) {
-                        const newContent = chunk.choices[0].delta.content;
-                        out += newContent;
-                        // console.log(newContent);
-                    }
-                } catch (error) {
-                    console.log("Error in chunk processing:", error);
-                    throw error; // Throw the error to retry
+                console.log("Checkpoint 5");
+                if (!chunk || !chunk.choices || chunk.choices.length === 0) {
+                    console.log("Invalid chunk received:", chunk);
+                    continue;
                 }
+                const newContent = chunk.choices[0]?.delta.content || '';
+                console.log("Checkpoint 6");
+                aiResponse += newContent;
             }
 
-            // After processing the stream, check if there is output
-            if (!out) {
-                console.log("There is no output from the server");
-                return { message: "No response from AI" }; // Return message instead of sending a response immediately
+            if (!aiResponse) {
+                console.log("No output from the server");
+                return { message: "No response from AI" };
             }
-            console.log("AI: ", out);
-            return out; // Return AI's response to be sent later
+
+            console.log("Checkpoint 7");
+            return aiResponse;
 
         } catch (error) {
             console.log("Error in AI response:", error);
-            throw error; // Throw error to retry
+            throw error;
         }
     };
 
+    console.log("Checkpoint 8");
+
     // Retry logic
     try {
+        console.log('Getting response');
         const response = await getAiResponse();
-        res.status(200).json(response); // Send response only after successful AI response or retry max reached
+        console.log("Checkpoint 9");
+        res.status(200).json(response); // Send response only after successful AI response
     } catch (error) {
         if (CURRENT_RETRY_NUM < MAX_RETRY_NUM) {
-            CURRENT_RETRY_NUM++;
+            CURRENT_RETRY_NUM += 1;
             console.log(`Retrying... Attempt: ${CURRENT_RETRY_NUM}`);
             await new Promise(resolve => setTimeout(resolve, RETRY_DELAY)); // Wait before retrying
             sendMessageToAi(req, res); // Retry the function
-            console.log(error)
+            console.log(error);
         } else {
             console.log("Max retries reached. Sending failure response.");
             res.status(500).json({ msg: "Failed after retries" }); // Send failure response after retries are exhausted

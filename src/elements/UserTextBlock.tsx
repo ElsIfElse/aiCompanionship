@@ -14,7 +14,7 @@ const UserTextBlock:React.FC<UserTextBlock> = ({text}) => {
             animate={{opacity:[0,100],scale:[0,1],x:[0,500]}}
             transition={{duration:0.1}}
 
-            className="w-[40%] bg-slate-300 p-2 rounded-md rounded-br-none my-5 mr-5">
+            className="2xl:w-[40%] bg-slate-300 2xl:p-2 rounded-md rounded-br-none 2xl:my-5 2xl:mr-5">
                 <MessageText text={text}></MessageText>
             </motion.div>
         </div>

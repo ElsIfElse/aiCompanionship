@@ -3,6 +3,7 @@ import Header3 from "../elements/Header3";
 import InputField01 from "../elements/InputField01";
 import Label01 from "../elements/Label01";
 import Link01 from "../elements/Link";
+import { useAiAnswerData } from "../utils/useAiAnswer";
 import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import {motion} from "motion/react"
@@ -14,6 +15,11 @@ const MainPage = () => {
     const setUserGender = useUserData((state)=>state.updateUserGender)
     const setBotGender = useBotData((state)=>state.updateBotGender)
     const setPeronality = useBotData((state)=>state.updateBotPersonality)
+
+
+    const clearStorage = function(){
+        localStorage.removeItem('aiAnswerData')
+    }
 
     return ( 
         <div className="flex flex-col items-center justify-center w-screen h-screen ">
@@ -73,7 +79,7 @@ const MainPage = () => {
                     </motion.div>   
                 </div>     
             </div>
-            <Link01 name="Chat" destination="/chat"/>
+            <Link01 action={clearStorage} name="Chat" destination="/chat"/>
         </div>
      );
 }
