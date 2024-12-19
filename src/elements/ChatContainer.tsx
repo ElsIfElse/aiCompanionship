@@ -1,4 +1,5 @@
 import printElements from "../utils/printElements";
+import { useAiAnswerData } from "../utils/useAiAnswer";
 import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import AnswerTextBlock from "./AnswerTextBlock";
@@ -14,6 +15,7 @@ const ChatContainer:React.FC= () => {
 
     const botName = useBotData((state)=>state.botName)
     const userName = useUserData((state)=>state.userName)
+    const aiAnswer = useAiAnswerData((state)=>state.aiAnswer)
 
 
     useEffect(()=>{
@@ -21,7 +23,7 @@ const ChatContainer:React.FC= () => {
         
     },[botName,userName])
 
-    const [aiAnswer,setAiAnswer] = useState<string | null>(null)
+    // const [aiAnswer,setAiAnswer] = useState<string | null>(null)
     const [userMessage,setUserMessage] = useState<string | null>(null)
 
     const [typedMessage,setTypedMessage] = useState<string>("")
@@ -66,12 +68,12 @@ const ChatContainer:React.FC= () => {
         <div 
         className="bg-slate-800 border border-slate-700 w-[50%] max-w-[1000px] h-[80%] rounded-md flex flex-col items-center p-5 mb-5">
             <div ref={messageWindow} className="flex h-[100%] bg-slate-700 flex-col w-[100%] rounded-md overflow-auto">
-                {botName && <AnswerTextBlock textInput={`Hey there ${userName}! I am ${botName} How can I help You?`}/>}
+                {botName && <AnswerTextBlock textInput={`Hey there ${userName}! I am ${botName} Tell me, how *are* you? Spill the tea! ☕️`}/>}
                 {allMessages && printElements(allMessages)}
             </div>
             <div className="w-[100%] h-[15%] justify-center items-end flex flex-row p-5">
                 <MessageInputBox inputValue={typedMessage} getUserMessage={getUserMessage}></MessageInputBox>
-                <Button1 userMessage={typedMessage} getMessage={getMessage} getUserMessage={setUserMessages} clearInputField={clearTypedMessage} text="Send"></Button1>
+                <Button1 allMessages={allMessages} userMessage={typedMessage} getMessage={getMessage} getUserMessage={setUserMessages} clearInputField={clearTypedMessage} text="Send"></Button1>
             </div>
         </div>
      );

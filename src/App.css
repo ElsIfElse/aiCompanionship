@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-h1,h2,h3,p,input,textarea,label,a{
-    @apply font-Alef;
+h1,h2,h3,p,input,textarea,label,a,option,select{
+    @apply font-Alef text-slate-100;
 }
+
