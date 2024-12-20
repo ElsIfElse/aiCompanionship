@@ -1,14 +1,15 @@
 import AnswerTextBlock from "../elements/AnswerTextBlock"
 import SentTextBlock from "../elements/SentTextBlock"
 
-
-
-
 const printElements = function(stringArray:string[] | null){
     if(stringArray === null){
         return null
     }
-    return stringArray.map((message,index)=>(
+
+    const newArray:string[] = cutOffBeginningOfString(stringArray)
+    // console.log("Regexed Array: ",newArray)
+
+    return newArray.map((message,index)=>(
         message != null ? 
         <div key={index}>
             {index%2 !== 0 ? (<div className="w-full flex justify-end">
@@ -25,6 +26,24 @@ const printElements = function(stringArray:string[] | null){
         
         : null
     ))
+}
+
+const regex = /^-AI:\s*(.*)/
+const regex2 = /^-User:\s*(.*)/
+
+const cutOffBeginningOfString = (stringArray:string[]):string[]=>{
+
+    return stringArray.map((string:string)=>{
+        if(string.includes("AI")){
+            const match = string.match(regex)
+            return match ? match[1] : ""
+        }
+        if(string.includes("User")){
+            const match = string.match(regex2)
+            return match ? match[1] : ""
+         }    
+        return string
+    })
 }
 
 export default printElements
