@@ -4,6 +4,7 @@ import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import useAnswerArrivedState from "../utils/useStates";
 import useMessageHistory from "../utils/useMessageHistory";
+import {motion} from 'motion/react'
 
 interface ButtonInputs{
     text:string,
@@ -72,7 +73,10 @@ const clickHandle = async function() {
 
     return ( 
         <>
-            <button onClick={()=>{clickHandle()}} className="shadow-md 2xl:py-2 2xl:px-3 border-none outline-none hover:opacity-90 focus:border-none focus:outline-none active:text-slate-400 transition-all duration-200">{text}</button>
+            <button 
+
+
+            onClick={()=>{clickHandle()}}>{text}</button>
         </>
      );
 }

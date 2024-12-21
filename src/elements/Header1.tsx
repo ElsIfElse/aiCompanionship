@@ -6,7 +6,7 @@ interface headerInputs{
 const Header1:React.FC<headerInputs> = ({text}) => {
     return ( 
         <>
-            <h1 className={`2xl:text-5xl 2xl:mb-10`}>{text}</h1>
+            <h1 className={``}>{text}</h1>
         </>
      );
 }

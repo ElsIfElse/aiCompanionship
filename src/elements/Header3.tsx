@@ -6,7 +6,7 @@ interface Header3{
 const Header3:React.FC<Header3> = ({text}) => {
     return ( 
         <>
-            <h2 className={`2xl:text-2xl`}>{text}</h2>
+            <h2 className={``}>{text}</h2>
         </>
      );
 }

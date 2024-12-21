@@ -5,7 +5,7 @@ interface Header2{
 const Header2:React.FC<Header2> = ({text}) => {
     return ( 
         <>
-            <h2 className="2xl:text-3xl 2xl:mb-5 tracking-wider">{text}</h2>
+            <h2 className="">{text}</h2>
         </>
      );
 }

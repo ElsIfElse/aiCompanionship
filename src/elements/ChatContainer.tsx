@@ -46,8 +46,10 @@ const ChatContainer:React.FC= () => {
 
     return ( 
         <div 
-        className="bg-[#331F40] shadow-xl 2xl:w-[50%] lg:min-w-[800px] md:min-w-[800px] xl:min-w-[800px] max-w-[1000px] h-[80%] rounded-md flex flex-col items-center p-5 mb-5">
-            <div ref={messageWindow} className="flex h-[100%] bg-[#6A2473] flex-col w-[100%] rounded-md overflow-auto mb-2">
+        className="bg-[#658147] border-[5px] border-[#536a3a] shadow-2xl 2xl:w-[50%] lg:min-w-[800px]  xl:min-w-[800px] max-w-[1000px] h-[80%] rounded-md flex flex-col items-center p-5 mb-5
+        md:min-w-[550px] md:w-[95%]
+        ">
+            <div ref={messageWindow} className="border-[2px] border-[#536a3a] shadow-md flex h-[100%] bg-[#658147] flex-col w-[100%] rounded-md overflow-auto mb-2">
                 {botName && <AnswerTextBlock textInput={`Hey there ${userName}! I am ${botName} Tell me, how *are* you? Spill the tea! ☕️`}/>}
                 {messageHistory && printElements(messageHistory)}
             </div>

@@ -1,3 +1,4 @@
+import Button1 from "../elements/Button1";
 import ChatContainer from "../elements/ChatContainer";
 import Header2 from "../elements/Header2";
 import Link01 from "../elements/Link";
@@ -11,20 +12,28 @@ const ChatPage = () => {
     const resetHistory = useMessageHistory((state)=>state.deleteMessageHistory)
 
     return ( 
-        <div className="flex flex-col items-center h-screen w-screen p-12">
+        <div className="
+        flex flex-col items-center justify-center h-screen w-screen p-5
+        md:p-12
+        ">
             <Header2 text={`Chatting with ${botName}`}></Header2>
             <motion.hr 
                     
                     animate={{scaleX:[0,1]}}
                     transition={{delay:0.1,duration:0.1}}
-                    className="w-[20%] bg-transparent outline-none border-slate-300 mb-10" />
+                    className="" />
             <ChatContainer>
                 
             </ChatContainer>
-            <Link01 destination="/" name="Back To Menu" />
-            {/* <button onClick={resetHistory}>Delete History</button> */}
+            <div className="flex flex-row  w-[20%] justify-around">
+                <Link01 destination="/" name="Back To Menu" />
+                <motion.button 
+                        animate={{opacity:[0,1]}}
+                        transition={{delay:0.35,duration:0.2}}
+                onClick={resetHistory}>Delete History</motion.button>
+            </div>
         </div>
-     );
+     ); 
 }
 
 export default ChatPage;

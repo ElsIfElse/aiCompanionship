@@ -2,14 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root{
+    @apply bg-gradient-to-b from-[#597445] to-[#425633]
+}
 h1,h2,h3,p,input,textarea,label,a,option,select{
-    @apply font-Alef text-[#FFDCE4];
+    @apply font-Alef text-[#e4e4e4];
 }
 button,a{
-    @apply bg-[#6A2473]
+    @apply 
+    bg-[#93A23F] hover:bg-[#93a23fd3] focus:border-none focus:outline-none border-none outline-none transition-all duration-200 shadow-md px-6 py-2 rounded-lg text-xs
+    md:text-base md:px-8 md:py-2
+    lg:text-base lg:px-10 lg:py-3 
 }
-:root{
-    @apply bg-gradient-to-r from-[#331F40] to-[#3f2d4b]
+button{
+    @apply lg:py-2 lg:px-8
 }
+input,textarea,option,select{
+    @apply 
+    bg-[#e4e4e4] hover:opacity-90 active:outline-none active:border-none focus:outline-none text-[#151515] rounded-md py-2 px-2 text-xs 
+    md:text-sm
+    lg:text-base mt-3
+}
+h1{
+    @apply 2xl:text-5xl 2xl:mb-10
+}
+h2{
+    @apply 
+    text-2xl mt-0 mb-[10px] tracking-wider
+    md:text-3xl
+    lg:text-3xl lg:font-bold
+}
+h3{ 
+    @apply tracking-wider
+}
+label{
+    @apply tracking-wide text-sm 
+    md:text-base
+    lg:text-xl
+}
+p{
+    @apply 
+    text-xs tracking-wide
+    md:text-sm
+    lg:text-base
+}
+hr{
+    @apply 
+    w-[300px] bg-transparent outline-none border-slate-300 mb-5
+    md:w-[400px]
+    lg:w-[450px]
+}
+textarea{
+    @apply 
+    w-[80%] mr-2 h-[90%] py-2 text-xs
+    md:w-[70%] md:mr-5 md:h-[80%] md:py-2 md:text-sm
+    lg:text-base lg:h-[85%] lg:mt-0
+}
+
 
 

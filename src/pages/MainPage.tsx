@@ -25,9 +25,14 @@ const MainPage = () => {
     }
 
     return ( 
-        <div className="flex flex-col items-center justify-center w-screen h-screen ">
-            <div className="flex flex-col items-center justify-between w-screen h-[700px] ">
-                <div className="flex flex-col h-[1000px] justify-between items-center mb-10" >
+        <div className="flex flex-col items-center justify-center w-screen h-screen">
+            <div className="
+            flex flex-col items-center justify-between w-screen h-[700px] 
+            lg:h-[800px] lg:mb-12
+            ">
+                <div className="flex flex-col h-[1000px] justify-between items-center mb-10
+                lg:w-[800px] lg:justify-around 
+                " >
 
                                         {/* USER SETTING DIV */}
                     <motion.div 
@@ -35,7 +40,10 @@ const MainPage = () => {
                     animate={{scaleY:[0,1]}}
                     transition={{delay:0.1,duration:0.1}}
 
-                    className="flex flex-col h-[235px] justify-around items-center ">
+                    className="
+                    flex flex-col h-[235px] justify-around items-center 
+                    lg:justify-between 
+                    ">
 
                         <Header3 text="User Settings"/>
                         <div className="flex flex-col h-[135px] justify-around items-center ">
@@ -65,7 +73,10 @@ const MainPage = () => {
                     animate={{scaleY:[0,1]}}
                     transition={{delay:0.25,duration:0.1}}
                     
-                    className="flex flex-col h-[325px] justify-around items-center">
+                    className="
+                    flex flex-col h-[325px] justify-around items-center
+                    lg:justify-between
+                    ">
 
                     <Header3 text="Companion Settings"/>
                         <div className="flex flex-col h-[225px] justify-around items-center ">
