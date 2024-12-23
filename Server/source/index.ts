@@ -8,7 +8,7 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: 'https://aicompanionship.vercel.app/chat', // Replace '*' with your allowed origin(s)
+    origin: 'https://aicompanionship.vercel.app', // Replace '*' with your allowed origin(s)
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
     credentials: true
