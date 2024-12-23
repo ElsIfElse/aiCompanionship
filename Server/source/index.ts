@@ -11,7 +11,7 @@ app.use(cors({
     origin: 'https://aicompanionship.vercel.app/',  // Your frontend domain
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
-    credentials: true  // Allow credentials (cookies, etc.)
+    credentials: false
 }));
 
 
