@@ -7,4 +7,4 @@ router.post("/messageSending",(req,res)=>{
     sendMessageToAi(req,res)
 })
 
-export default router
+export default router 
