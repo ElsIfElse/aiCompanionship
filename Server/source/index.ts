@@ -7,13 +7,12 @@ import cors from "cors";
 dotenv.config()
 const app = express()
 
-app.use(cors(
-    { 
-    origin: "*", 
-    methods:['GET','POST']
-},
-    
-));
+app.use(cors({
+    origin: ['https://ai-companionship-h6mh6x0n0-szabolcs-sapi-s-projects.vercel.app'], // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
+    credentials: true
+}));
 
 
 app.use(express.json())

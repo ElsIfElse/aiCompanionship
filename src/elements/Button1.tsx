@@ -57,8 +57,12 @@ const clickHandle = async function() {
 
     try {
         const res = await axios.post(API_URL+'/messageSending', {
-            data: payload
-        });
+            data: payload,
+            
+        },
+    {
+        withCredentials: true
+    });
         
         console.log("Payload on Frontend: ", payload);
         const aiMsg = "-AI: " + res.data.message;
