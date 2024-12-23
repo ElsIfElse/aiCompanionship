@@ -71,11 +71,7 @@ const clickHandle = async function() {
 
     return ( 
         <>
-            <button 
-
-
-            onClick={()=>{clickHandle()}}>{text}</button>
-        </>
+            <button onClick={()=>{clickHandle()}}>{text}</button></>
      );
 }
  
