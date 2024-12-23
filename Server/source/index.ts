@@ -8,7 +8,7 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: 'https://aicompanionship.vercel.app',  // Your frontend domain
+    origin: ['https://aicompanionship.vercel.app','https://aicompanionship.vercel.app/api','https://aicompanionship.vercel.app/test'],  // Your frontend domain
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
     credentials: true
@@ -19,7 +19,7 @@ app.use(express.json())
 
 app.use("/api",aiRoutes)
 app.use('/test',(req,res)=>{
-    res.send("It is working")
+    res.json({message:"It is working"}).send("All good man")
 })
 
 
