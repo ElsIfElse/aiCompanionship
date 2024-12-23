@@ -1,6 +1,7 @@
 {   
     "version":2,
-    "builds":[{"src":"./Server/dist/source/index.js"}],
+    "builds":[{"src":"./Server/dist/source/index.js",
+                "use":"@vercel/node"}],
     "headers": [
       
         {
