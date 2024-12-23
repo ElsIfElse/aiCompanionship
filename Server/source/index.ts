@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import express from 'express'
-import {router} from './routes/aiRoutes';
+import aiRoutes from './routes/aiRoutes';
 import cors from "cors";
 
 
@@ -18,7 +18,10 @@ app.use(cors(
 
 app.use(express.json())
 
-app.use("/api",router)
+app.use("/api",aiRoutes)
+app.use('/test',(req,res)=>{
+    res.send("It is working")
+})
 
 
 const PORTNUM:string|undefined = process.env.PORT
