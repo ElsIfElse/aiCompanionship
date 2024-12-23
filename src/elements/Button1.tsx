@@ -61,8 +61,7 @@ const clickHandle = async function() {
             { 
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                withCredentials: true
+                }
             }
         );
         
