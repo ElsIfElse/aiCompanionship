@@ -19,6 +19,6 @@ const parsedPortNum:number = PORTNUM ? parseInt(PORTNUM) : 5000
 
 app.listen(parsedPortNum,'0.0.0.0',()=>{
     console.log(`Server is running on port ${PORTNUM?.toString()}`)
-})
+}) 
 
 
