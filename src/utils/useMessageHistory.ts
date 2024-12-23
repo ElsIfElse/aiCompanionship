@@ -1,11 +1,7 @@
 import {create} from 'zustand'
 import {persist} from 'zustand/middleware'
+import { MessageHistoryInterface } from './interfaces'; 
 
-interface MessageHistoryInterface {
-    messageHistory: string[];
-    updateMessageHistory: (newMessage: string) => Promise<void>;
-    deleteMessageHistory: () => Promise<void>;
-}
 
 export const useMessageHistory = create<MessageHistoryInterface>()(
     persist(

@@ -1,8 +1,8 @@
 import {create} from 'zustand'
 import {persist} from 'zustand/middleware'
+import { UseBotDataInterface } from './interfaces';
 
-
-export const useBotData = create(
+export const useBotData = create<UseBotDataInterface>()(
     persist(
     (set) => ({
     botName: "Jessica",

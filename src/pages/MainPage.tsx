@@ -1,12 +1,11 @@
-import { use } from "motion/react-client";
 import ChoiceInput from "../elements/ChoiceInput";
-import Header3 from "../elements/Header3";
 import InputField01 from "../elements/InputField01";
 import Label01 from "../elements/Label01";
 import Link01 from "../elements/Link";
 import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import {motion} from "motion/react"
+import Header2 from "../elements/Header2";
 
 const MainPage = () => {
 
@@ -31,7 +30,7 @@ const MainPage = () => {
             lg:h-[800px] lg:mb-12
             ">
                 <div className="flex flex-col h-[1000px] justify-between items-center mb-10
-                lg:w-[800px] lg:justify-around 
+                lg:w-[800px] lg:justify-around  
                 " >
 
                                         {/* USER SETTING DIV */}
@@ -41,11 +40,11 @@ const MainPage = () => {
                     transition={{delay:0.1,duration:0.1}}
 
                     className="
-                    flex flex-col h-[235px] justify-around items-center 
-                    lg:justify-between 
+                    flex flex-col h-[235px] justify-around items-center
+                    lg:justify-between
                     ">
 
-                        <Header3 text="User Settings"/>
+                        <Header2 text="User Settings"/>
                         <div className="flex flex-col h-[135px] justify-around items-center ">
                             <div className="flex flex-row items-center justify-between w-[350px] ">
                                 <Label01 text="Your Name:"/>
@@ -78,7 +77,7 @@ const MainPage = () => {
                     lg:justify-between
                     ">
 
-                    <Header3 text="Companion Settings"/>
+                    <Header2 text="Companion Settings"/>
                         <div className="flex flex-col h-[225px] justify-around items-center ">
                             <div className="flex flex-row items-center justify-between w-[350px] ">
                                 <Label01 text="Bot Name:"/>

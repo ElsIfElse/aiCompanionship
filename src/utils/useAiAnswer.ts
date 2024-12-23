@@ -1,7 +1,8 @@
 import {create} from 'zustand'
 import {persist} from 'zustand/middleware'
+import { UseAiAnswerData } from './interfaces'
 
-export const useAiAnswerData = create(
+export const useAiAnswerData = create<UseAiAnswerData>()(
     persist(
     (set) => ({
     aiAnswer: "",

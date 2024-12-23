@@ -1,7 +1,8 @@
 import {create} from 'zustand'
 import {persist} from 'zustand/middleware'
+import { UseUserDataInterface } from './interfaces'
 
-export const useUserData = create(
+export const useUserData = create<UseUserDataInterface>()(
     persist(
     (set) => ({
     userName: "John",

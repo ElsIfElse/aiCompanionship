@@ -7,13 +7,7 @@ import cors from "cors";
 dotenv.config()
 const app = express()
 
-const corsOptions = {
-    origin: 'http://192.168.1.100:5000',  
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type']
-  };
-
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(express.json())
 

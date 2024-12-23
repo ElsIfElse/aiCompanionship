@@ -16,7 +16,7 @@ const LoadingSign:React.FC<LoadingSignProps> = ({loadText}) => {
             delay:0
         }}
                 
-                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-100 ml-[2px] rounded-full">
+                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-700 ml-[2px] rounded-full">
                 
                 </motion.div>
                 <motion.div 
@@ -27,7 +27,7 @@ const LoadingSign:React.FC<LoadingSignProps> = ({loadText}) => {
             delay:0.2
         }}
                 
-                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-100 ml-[2px] rounded-full">
+                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-700 ml-[2px] rounded-full">
                 
                 </motion.div>
                 <motion.div 
@@ -38,7 +38,7 @@ const LoadingSign:React.FC<LoadingSignProps> = ({loadText}) => {
             delay:0.3
         }}
                 
-                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-100 ml-[2px] rounded-full">
+                className="2xl:w-[3px] relative bottom-1 2xl:h-[3px] bg-slate-700 ml-[2px] rounded-full">
                 
                 </motion.div>
         </div>

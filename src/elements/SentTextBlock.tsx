@@ -14,9 +14,9 @@ const SentTextBlock:React.FC<SentTextBlock> = ({textInput}) => {
         transition={{duration:0.2}}
         
         className="
-        w-[70%] bg-[#E4E0E1] p-2 rounded-md rounded-br-none my-5 mr-5 flex justify-start
-        md:w-[65%]
-        lg:w-[50%]
+        max-w-[70%] min-w-[10%] bg-[#FFFF] p-2 rounded-2xl rounded-br-none my-5 mr-5 flex justify-start border-2 border-[#00000059]
+        md:max-w-[65%]
+        lg:max-w-[50%]
         ">
             <MessageText text={textInput}></MessageText>
         </motion.div>

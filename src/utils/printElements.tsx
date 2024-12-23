@@ -12,7 +12,7 @@ const printElements = function(stringArray:string[] | null){
     return newArray.map((message,index)=>(
         message != null ? 
         <div key={index}>
-            {index%2 !== 0 ? (<div className="w-full flex justify-end">
+            {index%2 == 0 ? (<div className="w-full flex justify-end">
             {<SentTextBlock textInput={message}/>}
         </div>) 
         

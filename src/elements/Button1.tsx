@@ -1,10 +1,9 @@
 import axios from "axios";
-import { useAiAnswerData } from "../utils/useAiAnswer";
 import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import useAnswerArrivedState from "../utils/useStates";
 import useMessageHistory from "../utils/useMessageHistory";
-import {motion} from 'motion/react'
+import { API_URL } from "../utils/API";
 
 interface ButtonInputs{
     text:string,
@@ -13,7 +12,6 @@ interface ButtonInputs{
 
 const Button1:React.FC<ButtonInputs> = ({text,clearInputField}) => {
 
-const setAiAnswer = useAiAnswerData((state)=>state.updateAiAnswer)
 const aiGender = useBotData((state)=>state.botGender)
 const aiPersonality = useBotData((state)=>state.botPersonality)
 const userName = useUserData((state)=>state.userName)
@@ -58,7 +56,7 @@ const clickHandle = async function() {
     clearInputField();
 
     try {
-        const res = await axios.post('http://localhost:5000/api/messageSending', {
+        const res = await axios.post(API_URL+'/messageSending', {
             data: payload
         });
         
@@ -67,7 +65,7 @@ const clickHandle = async function() {
         setAnswerState(true);
         await setMessageHistory(aiMsg);
     } catch (error) {
-        console.log(error.msg, error);
+        console.log(error);
     }
 };
 

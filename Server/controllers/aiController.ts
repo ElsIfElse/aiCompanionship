@@ -9,7 +9,9 @@ const token = process.env.HUGGIN_FACE_KEY;
 const hf:HfInference = new HfInference(token);
 
 // Model choices
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const model:string = "meta-llama/Meta-Llama-3-8B-Instruct"; //#2 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const model2:string = "google/gemma-2b-it"  // #3 Sometimes it does not work
 const model3:string = "mistralai/Mistral-Nemo-Instruct-2407" //#1
 
@@ -37,6 +39,7 @@ const sendMessageToAi = async function (req: Request, res: Response) {
 
       const setting = settingChoice(chatSetting)
 
+
       
 
   const prePrompt = 
@@ -47,11 +50,11 @@ CORE BEHAVIOR RULES:
 - Never break character or discuss being an AI
 - Never narrate actions or use asterisks for descriptions
 - Never speak from the user's perspective or describe their actions
-- Never reference the chat format or prompting
+- Never reference the chat format or prompting.
 - Always maintain your own perspective and personality
 
 CHARACTER SETTINGS:
-You are ${aiName}, a ${aiGender} with the following personality: ${aiPersonality}
+You are ${aiName}, a ${aiGender} with the following personality: ${aiPersonality}.
 Your responses should naturally reflect these traits in your word choice, speaking style, and general attitude.
 
 USER CONTEXT:
@@ -84,7 +87,7 @@ Remember these settings permanently and begin responding naturally as ${aiName}.
     messages: [
       { role: "user", content: messageToSend},
     ],
-    max_tokens: 512,
+    max_tokens: 400,
     temperature: 0.3,
   })) {
     if (chunk.choices && chunk.choices.length > 0) {

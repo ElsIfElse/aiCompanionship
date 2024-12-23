@@ -1,8 +1,8 @@
 import {create} from 'zustand'
 import {persist} from 'zustand/middleware'
+import { UseStateInterface } from './interfaces'
 
-
-export const useAnswerArrivedState = create(
+export const useAnswerArrivedState = create<UseStateInterface>()(
     persist(
     (set) => ({
     answerArrived: true,
