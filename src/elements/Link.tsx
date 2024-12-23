@@ -9,6 +9,7 @@ interface LinkProps{
 
 const Link01:React.FC<LinkProps> = ({destination,name,action}) => {
 
+    const noOpFunction = ()=>{}
     
     return ( 
         <motion.a 
@@ -16,7 +17,7 @@ const Link01:React.FC<LinkProps> = ({destination,name,action}) => {
         animate={{opacity:[0,1]}}
         transition={{delay:0.35,duration:0.2}}
 
-        href={destination} onClick={action ? ()=>action() : null}>{name}
+        href={destination} onClick={()=>action ? action() : noOpFunction()}>{name}
         </motion.a>
      );
 }
