@@ -56,14 +56,14 @@ const clickHandle = async function() {
     clearInputField();
 
     try {
-        axios.defaults.withCredentials = false;
-        const res = await axios.post(API_URL+'/messageSending', 
+        axios.defaults.withCredentials = true;
+        const res = await axios.post('https://aicompanionship.vercel.app/api/messageSending', 
             { data: payload },
             { 
                 headers: {
                     'Content-Type': 'application/json',
                     
-                }
+                },withCredentials: true
             }
         );
         
