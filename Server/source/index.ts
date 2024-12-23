@@ -7,7 +7,13 @@ import cors from "cors";
 dotenv.config()
 const app = express()
 
-app.use(cors({ origin: 'https://your-project-name.vercel.app' }));
+app.use(cors(
+    { 
+    origin: "*", 
+    methods:['GET','POST']
+},
+    
+));
 
 
 app.use(express.json())
