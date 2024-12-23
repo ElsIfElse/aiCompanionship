@@ -3,7 +3,7 @@ import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import useAnswerArrivedState from "../utils/useStates";
 import useMessageHistory from "../utils/useMessageHistory";
-import { API_URL } from "../utils/API";
+// import { API_URL } from "../utils/API";
 
 interface ButtonInputs{
     text:string,
