@@ -102,4 +102,8 @@ Remember these settings permanently and begin responding naturally as ${aiName}.
 
 };
 
-export { sendMessageToAi };
+const test = function(req:Request,res:Response){
+  res.json({msg:'All good it is working'})
+}
+
+export { sendMessageToAi,test };
