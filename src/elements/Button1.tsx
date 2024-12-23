@@ -56,6 +56,7 @@ const clickHandle = async function() {
     clearInputField();
 
     try {
+        axios.defaults.withCredentials = false;
         const res = await axios.post(API_URL+'/messageSending', 
             { data: payload },
             { 
