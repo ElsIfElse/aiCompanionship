@@ -15,7 +15,9 @@ app.use(cors({
 
 
 app.use(express.json())
-
+app.use("/",(req,res)=>{
+    res.send("Server is running")
+})
 app.use("/api",aiRoutes)
 app.use('/test',(req,res)=>{
     res.json({message:"It is working"}).send("All good man")
