@@ -8,14 +8,15 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: 'https://aicompanionship.vercel.app/chat',
+    origin: 'https://aicompanionship.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
+    credentials:true
 }));
 
 
 app.use(express.json())
-app.use("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.send("Server is running")
 })
 app.use("/api",aiRoutes)
