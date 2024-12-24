@@ -1,5 +1,5 @@
 import express from "express";
-import { sendMessageToAi, test } from "../../controllers/aiController";
+import { sendMessageToAi, test } from "../controllers/aiController";
 
 const router = express.Router();
 
