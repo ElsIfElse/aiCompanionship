@@ -14,9 +14,9 @@ app.use(cors({
     credentials:true
 }));
 
-
+    
 app.use(express.json())
-app.get("/",(req,res)=>{
+app.get("/test",(req,res)=>{
     res.send("Server is running")
 })
 app.use("/api",aiRoutes)
