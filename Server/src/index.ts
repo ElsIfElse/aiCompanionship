@@ -3,20 +3,15 @@ import express from 'express'
 import aiRoutes from '../routes/aiRoutes';
 import cors from "cors";
 
-
 dotenv.config()
 const app = express()
 
-app.use(cors({
-    origin: 'https://aicompanionship.vercel.app',
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
-app.options('*', cors()); // Add this line before your routes
- 
+app.use(cors());
 
 app.use(express.json())
+
+
+
 app.get("/test",(req,res)=>{
     res.send("Server is running")
 })
