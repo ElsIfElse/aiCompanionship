@@ -60,7 +60,7 @@ const clickHandle = async function() {
         
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let result:any;
-        axios.post("https://test-project-back.vercel.app/postdata",payload)
+        axios.post("https://test-project-back.vercel.app/messageSending",payload)
         .then((res)=>{
             console.log(res.data)
         })
