@@ -9,8 +9,8 @@ const app = express()
 
 app.use(cors({
     origin: ['https://aicomptest.vercel.app','https://aicompanionship.vercel.app/chat','https://aicompanionship.vercel.app'],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials:true
 }));
 
