@@ -12,6 +12,8 @@ app.use(cors({
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+app.options('*', cors()); // Add this line before your routes
  
 
 app.use(express.json())
