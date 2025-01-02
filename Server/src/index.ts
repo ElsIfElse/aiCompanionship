@@ -16,14 +16,11 @@ app.use(cors(corsSettings));
 
 app.use(express.json())
 
-
-
 app.get("/test",(req:Request,res:Response)=>{
     res.send({msg:"Hello there pooopoooo"})
 })
 
 app.use("/api",aiRoutes)
-
 
 const PORTNUM:string|undefined = process.env.PORT 
 const parsedPortNum:number = PORTNUM ? parseInt(PORTNUM) : 5000
