@@ -9,10 +9,11 @@ const token = process.env.HUGGIN_FACE_KEY;
 const hf:HfInference = new HfInference(token);
 
 // Model choices
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const model:string = "meta-llama/Meta-Llama-3-8B-Instruct"; //#2 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const model2:string = "google/gemma-2b-it"  // #3 Sometimes it does not work
+// // eslint-disable-next-line @typescript-eslint/no-unused-vars
+// const model:string = "meta-llama/Meta-Llama-3-8B-Instruct"; //#2 
+// // eslint-disable-next-line @typescript-eslint/no-unused-vars
+// const model2:string = "google/gemma-2b-it"  // #3 Sometimes it does not work
+
 const model3:string = "mistralai/Mistral-Nemo-Instruct-2407" //#1
 
 const settingChoice:(choice:string)=>string = chooseSetting;

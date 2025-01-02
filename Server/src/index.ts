@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import express from 'express'
-import aiRoutes from '../routes/aiRoutes';
+import aiRoutes from './routes/aiRoutes';
 import cors from "cors";
 
 dotenv.config()
