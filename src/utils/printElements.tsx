@@ -1,5 +1,7 @@
 import AnswerTextBlock from "../elements/AnswerTextBlock"
 import SentTextBlock from "../elements/SentTextBlock"
+import React from "react";
+
 
 const printElements = function(stringArray:string[] | null){
     if(stringArray === null){

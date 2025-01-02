@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Header2{
     text:string
 }

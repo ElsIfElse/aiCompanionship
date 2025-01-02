@@ -6,6 +6,8 @@ import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import {motion} from "motion/react"
 import Header2 from "../elements/Header2";
+import React from "react";
+
 
 const MainPage = () => {
 

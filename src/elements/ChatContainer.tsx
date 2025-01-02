@@ -8,6 +8,8 @@ import Button1 from "./Button1";
 import LoadingSign from "./LoadingSign";
 import MessageInputBox from "./MessageInputBox";
 import { useEffect, useRef } from "react";
+import React from "react";
+
 
 const ChatContainer:React.FC= () => {
 

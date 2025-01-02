@@ -1,3 +1,6 @@
+import React from "react";
+
+
 interface MessageText{
     text:string
 }

@@ -4,6 +4,8 @@ import Link01 from "../elements/Link";
 import useBotData from "../utils/useBotData";
 import useMessageHistory from "../utils/useMessageHistory";
 import {motion} from 'motion/react'
+import React from "react";
+
 
 const ChatPage = () => {
 

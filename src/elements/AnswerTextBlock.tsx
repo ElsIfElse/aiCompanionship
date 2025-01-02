@@ -1,5 +1,7 @@
 import MessageText from "./MessageText";
 import {motion} from "motion/react"
+import React from "react";
+
 
 interface AnswerTextBlock{
     textInput:string

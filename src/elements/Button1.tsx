@@ -3,6 +3,7 @@ import useBotData from "../utils/useBotData";
 import { useUserData } from "../utils/useUserData";
 import useAnswerArrivedState from "../utils/useStates";
 import useMessageHistory from "../utils/useMessageHistory";
+import React from "react";
 // import { API_URL } from "../utils/API";
 
 interface ButtonInputs{
@@ -91,7 +92,8 @@ const clickHandle = async function() {
 
     return ( 
         <>
-            <button onClick={()=>{clickHandle()}}>{text}</button></>
+            <button onClick={()=>{clickHandle()}}>{text}</button>
+        </>
      );
 }
  

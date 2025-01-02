@@ -1,3 +1,6 @@
+import React from "react";
+
+
 import MessageText from "./MessageText";
 import {motion} from "motion/react"
 

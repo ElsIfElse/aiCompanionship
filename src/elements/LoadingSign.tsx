@@ -1,5 +1,6 @@
 import {motion} from "motion/react"
 import SmallText from "./SmallText";
+import React from "react";
 
 interface LoadingSignProps{
     loadText?:string

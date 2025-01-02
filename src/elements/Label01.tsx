@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Label01Props{
     text:string
 }
