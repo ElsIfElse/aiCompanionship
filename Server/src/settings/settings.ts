@@ -9,7 +9,7 @@ export const chooseSetting = function(choice:string){
             return SETTING_1
         case "Park":
             return SETTING_2
-        case "Texting":
+        case "Texting": 
             return SETTING_3
             case "Party":
                 return SETTING_4
