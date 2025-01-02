@@ -3,7 +3,7 @@ import { sendMessageToAi, test } from "../controllers/aiController";
 
 const router = express.Router();
 
-router.post("/messageSending",(req,res)=>{
+router.post("/messagesending",(req,res)=>{
     sendMessageToAi(req,res)
 })
 
