@@ -17,7 +17,7 @@ app.use(cors(corsSettings));
 app.use(express.json())
 
 app.get("/test",(req:Request,res:Response)=>{
-    res.send({msg:"Hello there pooopoooo"})
+    res.send({msg:"Hello there pooopoooopeeeepeeee"})
 })
 
 app.use("/api",aiRoutes)
