@@ -60,7 +60,12 @@ const clickHandle = async function() {
         
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let result:any;
-        axios.post("https://ai-companionship-server.vercel.app/api/messagesending",payload)
+        axios.post("https://ai-companionship-server.vercel.app/api/messagesending",payload,{
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            }
+        })
         .then((res)=>{
             console.log(res.data)
         })
