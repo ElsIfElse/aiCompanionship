@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import express from 'express'
+import express, { Request, Response } from "express";
 import aiRoutes from './routes/aiRoutes';
 import cors from "cors";
 
@@ -18,8 +18,8 @@ app.use(express.json())
 
 
 
-app.get("/test",(req,res)=>{
-    res.send("Server is running")
+app.get("/test",(req:Request,res:Response)=>{
+    res.send({msg:"Hello there pooopoooo"})
 })
 
 app.use("/api",aiRoutes)
