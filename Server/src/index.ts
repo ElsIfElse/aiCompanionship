@@ -6,7 +6,13 @@ import cors from "cors";
 dotenv.config()
 const app = express()
 
-app.use(cors());
+const corsSettings = {
+    origin:"https://aicompanionship.vercel.app",
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}
+
+app.use(cors(corsSettings));
 
 app.use(express.json())
 
