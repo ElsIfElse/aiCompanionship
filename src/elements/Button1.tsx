@@ -27,7 +27,6 @@ const messageHistory = useMessageHistory((state)=>state.messageHistory)
 const userMessage = useUserData((state)=>state.userMessage)
 
 
-
 const clickHandle = async function() {
     setAnswerState(false);
     console.log("Current User Message: ", userMessage);
@@ -56,20 +55,30 @@ const clickHandle = async function() {
     clearInputField();
 // https://aicompanionship.vercel.app/api/messageSending
     try {
-        const res = await axios.post('https://ai-companionship-server.vercel.app/api/messageSending', 
-            { data: payload },
-            { 
-                headers: {
-                    'Content-Type': 'application/json',
-                    
-                }
-            }
-        );
         
+        // const res = await axios.post('https://ai-companionship-server.vercel.app/api/messageSending', { data: payload });
+        
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        let result:any;
+        axios.post("https://test-project-back.vercel.app/postdata",payload)
+        .then((res)=>{
+            console.log(res.data)
+        })
+        .then((res)=>{
+            result = res
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+
         console.log("Payload on Frontend: ", payload);
-        const aiMsg = "-AI: " + res.data.message;
-        setAnswerState(true);
-        await setMessageHistory(aiMsg);
+        if(result){
+            const aiMsg = "-AI: " + result.data.message;
+            setAnswerState(true);
+            await setMessageHistory(aiMsg);
+        }
+
+
     } catch (error) {
         console.log(error);
     }

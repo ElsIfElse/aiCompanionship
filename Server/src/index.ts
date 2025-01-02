@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import express from 'express'
-import aiRoutes from './routes/aiRoutes';
+import aiRoutes from '../routes/aiRoutes';
 import cors from "cors";
 
 
@@ -8,7 +8,7 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: ['https://aicomptest.vercel.app','https://aicompanionship.vercel.app/chat','https://aicompanionship.vercel.app'],
+    origin: ['https://aicompanionship.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
