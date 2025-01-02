@@ -1,4 +1,5 @@
 import {motion} from 'motion/react'
+import { Link } from 'react-router-dom'
 
 interface LinkProps{
     destination:string,
@@ -12,13 +13,15 @@ const Link01:React.FC<LinkProps> = ({destination,name,action}) => {
     const noOpFunction = ()=>{}
     
     return ( 
-        <motion.a 
+        <motion.div 
         
         animate={{opacity:[0,1]}}
-        transition={{delay:0.35,duration:0.2}}
-
-        href={destination} onClick={()=>action ? action() : noOpFunction()}>{name}
-        </motion.a>
+        transition={{delay:0.35,duration:0.2}}>
+            <Link
+            to={{pathname:destination}} onClick={()=>action ? action() : noOpFunction()}
+            ></Link>
+            {name}
+        </motion.div>
      );
 }
  
